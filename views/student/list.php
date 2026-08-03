@@ -1,4 +1,21 @@
-<?php require_once __DIR__ . '/../layout/header.php'; ?>
+<?php
+/**
+ * @var string $flash
+ * @var int $totalStudent
+ * @var float|int $averageScore
+ * @var float|int $highestScore
+ * @var float|int $lowestScore
+ * @var string $keyword
+ * @var array $jurusanList
+ * @var string $jurusan
+ * @var array $kelasList
+ * @var string $kelas
+ * @var string $sort
+ * @var array $pagination
+ * @var Student[] $students
+ */
+require_once __DIR__ . '/../layout/header.php';
+?>
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>

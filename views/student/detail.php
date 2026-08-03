@@ -1,4 +1,9 @@
-<?php require_once __DIR__ . '/../layout/header.php'; ?>
+<?php
+/**
+ * @var Student $student
+ */
+require_once __DIR__ . '/../layout/header.php';
+?>
 
 <div class="row justify-content-center">
 
