@@ -1,10 +1,4 @@
 <?php
-/**
- * @var Student|null $student
- * @var StudentManager $manager
- * @var array $jurusanList
- * @var array $kelasList
- */
 
 $isEdit = $student !== null;
 
