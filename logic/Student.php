@@ -2,6 +2,7 @@
 
 class Student
 {
+    // Data pribadi siswa (disimpan private agar aman)
     private $id;
     private $nis;
     private $nama;
@@ -10,15 +11,9 @@ class Student
     private $email;
     private $nilai;
 
-    public function __construct(
-        $id,
-        $nis,
-        $nama,
-        $kelas,
-        $jurusan,
-        $email,
-        $nilai
-    ) {
+    // Saat objek siswa dibuat, langsung isi semua datanya
+    public function __construct($id, $nis, $nama, $kelas, $jurusan, $email, $nilai)
+    {
         $this->id = $id;
         $this->nis = $nis;
         $this->nama = $nama;
@@ -28,9 +23,9 @@ class Student
         $this->nilai = $nilai;
     }
 
-    /* ==========================
-       Getter
-    ========================== */
+    // ==========================================
+    // GETTER - Fungsi untuk MENGAMBIL data siswa
+    // ==========================================
 
     public function getId()
     {
@@ -67,9 +62,9 @@ class Student
         return $this->nilai;
     }
 
-    /* ==========================
-       Setter
-    ========================== */
+    // ==========================================
+    // SETTER - Fungsi untuk MENGUBAH data siswa
+    // ==========================================
 
     public function setNis($nis)
     {
@@ -101,9 +96,9 @@ class Student
         $this->nilai = $nilai;
     }
 
-    /* ==========================
-       Update seluruh data
-    ========================== */
+    // ==========================================
+    // UPDATE - Ubah semua data siswa sekaligus
+    // ==========================================
 
     public function update($data)
     {
@@ -115,68 +110,59 @@ class Student
         $this->nilai = $data['nilai'];
     }
 
-    /* ==========================
-       Status Kelulusan
-    ========================== */
+    // ==========================================
+    // CEK KELULUSAN - Lulus jika nilai >= 75
+    // ==========================================
 
     public function isPassed()
     {
         return $this->nilai >= 75;
     }
 
-    /* ==========================
-       Grade
-    ========================== */
+    // ==========================================
+    // GRADE - Ubah angka jadi huruf (A/B/C/D/E)
+    // ==========================================
 
     public function getGrade()
     {
         if ($this->nilai >= 90) {
             return "A";
         }
-
         if ($this->nilai >= 80) {
             return "B";
         }
-
         if ($this->nilai >= 70) {
             return "C";
         }
-
         if ($this->nilai >= 60) {
             return "D";
         }
-
         return "E";
     }
 
-    /* ==========================
-       Predikat
-    ========================== */
+    // ==========================================
+    // PREDIKAT - Terjemahkan grade jadi kata
+    // ==========================================
 
     public function getPredicate()
     {
         switch ($this->getGrade()) {
-
             case "A":
                 return "Sangat Baik";
-
             case "B":
                 return "Baik";
-
             case "C":
                 return "Cukup";
-
             case "D":
                 return "Kurang";
-
             default:
                 return "Sangat Kurang";
         }
     }
 
-    /* ==========================
-       Konversi ke Array
-    ========================== */
+    // ==========================================
+    // KONVERSI KE ARRAY - Bungkus semua jadi array
+    // ==========================================
 
     public function toArray()
     {
