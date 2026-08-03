@@ -2,14 +2,30 @@
 
 class Student
 {
+    /** @var string */
     private $id;
+    /** @var string */
     private $nis;
+    /** @var string */
     private $nama;
+    /** @var string */
     private $kelas;
+    /** @var string */
     private $jurusan;
+    /** @var string */
     private $email;
+    /** @var int|float|string */
     private $nilai;
 
+    /**
+     * @param string $id
+     * @param string $nis
+     * @param string $nama
+     * @param string $kelas
+     * @param string $jurusan
+     * @param string $email
+     * @param int|float|string $nilai
+     */
     public function __construct(
         $id,
         $nis,
@@ -32,36 +48,57 @@ class Student
        Getter
     ========================== */
 
+    /**
+     * @return string
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getNis()
     {
         return $this->nis;
     }
 
+    /**
+     * @return string
+     */
     public function getNama()
     {
         return $this->nama;
     }
 
+    /**
+     * @return string
+     */
     public function getKelas()
     {
         return $this->kelas;
     }
 
+    /**
+     * @return string
+     */
     public function getJurusan()
     {
         return $this->jurusan;
     }
 
+    /**
+     * @return string
+     */
     public function getEmail()
     {
         return $this->email;
     }
 
+    /**
+     * @return int|float|string
+     */
     public function getNilai()
     {
         return $this->nilai;
@@ -71,31 +108,55 @@ class Student
        Setter
     ========================== */
 
+    /**
+     * @param string $nis
+     * @return void
+     */
     public function setNis($nis)
     {
         $this->nis = $nis;
     }
 
+    /**
+     * @param string $nama
+     * @return void
+     */
     public function setNama($nama)
     {
         $this->nama = $nama;
     }
 
+    /**
+     * @param string $kelas
+     * @return void
+     */
     public function setKelas($kelas)
     {
         $this->kelas = $kelas;
     }
 
+    /**
+     * @param string $jurusan
+     * @return void
+     */
     public function setJurusan($jurusan)
     {
         $this->jurusan = $jurusan;
     }
 
+    /**
+     * @param string $email
+     * @return void
+     */
     public function setEmail($email)
     {
         $this->email = $email;
     }
 
+    /**
+     * @param int|float|string $nilai
+     * @return void
+     */
     public function setNilai($nilai)
     {
         $this->nilai = $nilai;
@@ -105,6 +166,10 @@ class Student
        Update seluruh data
     ========================== */
 
+    /**
+     * @param array $data
+     * @return void
+     */
     public function update($data)
     {
         $this->nis = $data['nis'];
@@ -119,6 +184,9 @@ class Student
        Status Kelulusan
     ========================== */
 
+    /**
+     * @return bool
+     */
     public function isPassed()
     {
         return $this->nilai >= 75;
@@ -128,6 +196,9 @@ class Student
        Grade
     ========================== */
 
+    /**
+     * @return string
+     */
     public function getGrade()
     {
         if ($this->nilai >= 90) {
@@ -153,6 +224,9 @@ class Student
        Predikat
     ========================== */
 
+    /**
+     * @return string
+     */
     public function getPredicate()
     {
         switch ($this->getGrade()) {
@@ -178,6 +252,9 @@ class Student
        Konversi ke Array
     ========================== */
 
+    /**
+     * @return array
+     */
     public function toArray()
     {
         return [
@@ -194,3 +271,4 @@ class Student
         ];
     }
 }
+

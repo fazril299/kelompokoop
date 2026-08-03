@@ -2,10 +2,12 @@
 
 class StudentManager
 {
+    /** @var Validator */
     private $validator;
 
     /**
      * Master Jurusan
+     * @var string[]
      */
     private $jurusanList = [
         "PPLG",
@@ -18,6 +20,7 @@ class StudentManager
 
     /**
      * Master Kelas
+     * @var string[]
      */
     private $kelasList = [
         "X PPLG 1",
@@ -46,6 +49,7 @@ class StudentManager
 
     /**
      * Default jumlah data per halaman
+     * @var int
      */
     private $perPage = 5;
 
@@ -56,6 +60,7 @@ class StudentManager
 
     /**
      * Mengambil seluruh data dari session
+     * @return Student[]
      */
     private function load()
     {
@@ -64,6 +69,8 @@ class StudentManager
 
     /**
      * Menyimpan data ke session
+     * @param Student[] $students
+     * @return void
      */
     private function save($students)
     {
@@ -72,6 +79,7 @@ class StudentManager
 
     /**
      * Generate ID otomatis
+     * @return string
      */
     private function generateId()
     {
@@ -80,6 +88,8 @@ class StudentManager
 
     /**
      * Flash Message
+     * @param string $message
+     * @return void
      */
     private function flash($message)
     {
@@ -88,6 +98,8 @@ class StudentManager
 
     /**
      * Redirect
+     * @param string $url
+     * @return void
      */
     private function redirect($url = "index.php")
     {
@@ -97,6 +109,8 @@ class StudentManager
 
     /**
      * Ambil satu data
+     * @param string $id
+     * @return Student|null
      */
     public function find($id)
     {
@@ -112,6 +126,7 @@ class StudentManager
 
     /**
      * Total Data
+     * @return int
      */
     public function totalStudent()
     {
@@ -120,6 +135,7 @@ class StudentManager
 
     /**
      * Nilai rata-rata
+     * @return float|int
      */
     public function averageScore()
     {
@@ -141,6 +157,7 @@ class StudentManager
 
     /**
      * Nilai tertinggi
+     * @return int|float
      */
     public function highestScore()
     {
@@ -162,6 +179,7 @@ class StudentManager
 
     /**
      * Nilai terendah
+     * @return int|float
      */
     public function lowestScore()
     {
@@ -183,6 +201,9 @@ class StudentManager
 
     /**
      * Mengambil semua data
+     * @param string $keyword
+     * @param string $sort
+     * @return Student[]
      */
     public function getAll($keyword = "", $sort = "")
     {
@@ -276,6 +297,8 @@ class StudentManager
 
     /**
      * Simpan data baru
+     * @param array $data
+     * @return void
      */
     public function store($data)
     {
@@ -324,6 +347,9 @@ class StudentManager
 
     /**
      * Update data
+     * @param string $id
+     * @param array $data
+     * @return void
      */
     public function update($id, $data)
     {
@@ -363,6 +389,8 @@ class StudentManager
 
     /**
      * Hapus data
+     * @param string $id
+     * @return void
      */
     public function delete($id)
     {
@@ -384,6 +412,9 @@ class StudentManager
 
     /**
      * Filter berdasarkan jurusan
+     * @param Student[] $students
+     * @param string $jurusan
+     * @return Student[]
      */
     public function filterJurusan($students, $jurusan)
     {
@@ -399,6 +430,9 @@ class StudentManager
 
     /**
      * Filter berdasarkan kelas
+     * @param Student[] $students
+     * @param string $kelas
+     * @return Student[]
      */
     public function filterKelas($students, $kelas)
     {
@@ -414,6 +448,10 @@ class StudentManager
 
     /**
      * Pagination
+     * @param Student[] $students
+     * @param int $page
+     * @param int|null $perPage
+     * @return array
      */
     public function pagination($students, $page = 1, $perPage = null)
     {
@@ -446,6 +484,7 @@ class StudentManager
 
     /**
      * Ambil seluruh jurusan unik
+     * @return string[]
      */
     public function getJurusanList()
     {
@@ -454,6 +493,7 @@ class StudentManager
 
     /**
      * Ambil seluruh kelas unik
+     * @return string[]
      */
     public function getKelasList()
     {
@@ -462,6 +502,7 @@ class StudentManager
 
     /**
      * Hapus seluruh data
+     * @return void
      */
     public function clear()
     {
@@ -474,6 +515,7 @@ class StudentManager
 
     /**
      * Seed data contoh
+     * @return void
      */
     public function seed()
     {
@@ -528,6 +570,7 @@ class StudentManager
 
     /**
      * Ambil flash message
+     * @return string
      */
     public function getFlash()
     {
@@ -540,6 +583,8 @@ class StudentManager
 
     /**
      * Menyimpan error validasi
+     * @param array $errors
+     * @return void
      */
     private function setErrors($errors)
     {
@@ -548,6 +593,7 @@ class StudentManager
 
     /**
      * Mengambil error validasi
+     * @return array
      */
     public function getErrors()
     {
@@ -559,6 +605,8 @@ class StudentManager
 
     /**
      * Menyimpan old input
+     * @param array $data
+     * @return void
      */
     private function setOld($data)
     {
@@ -567,6 +615,7 @@ class StudentManager
 
     /**
      * Mengambil old input
+     * @return array
      */
     public function getOld()
     {
@@ -576,3 +625,4 @@ class StudentManager
         return $old;
     }
 }
+

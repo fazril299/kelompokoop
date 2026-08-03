@@ -2,6 +2,12 @@
 
 class Validator
 {
+    /**
+     * @param array $data
+     * @param Student[] $students
+     * @param string|null $ignoreId
+     * @return array
+     */
     public function validate($data, $students, $ignoreId = null)
     {
         $errors = [];
