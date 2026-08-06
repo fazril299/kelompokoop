@@ -392,7 +392,7 @@ class StudentManager
         }
 
         return array_filter($students, function ($student) use ($jurusan) {
-
+          
             return $student->getJurusan() == $jurusan;
         });
     }
